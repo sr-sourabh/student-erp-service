@@ -12,6 +12,7 @@ import com.erp.student.specialisation.SpecialisationTransformer;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +49,7 @@ public class StudentTransformer {
                 studentDto.setEmail(student.getEmail());
                 studentDto.setFirstName(student.getFirstName());
                 studentDto.setLastName(student.getLastName());
-                studentDto.setGraduationYear(student.getGraduationYear());
+                studentDto.setGraduationYear(String.valueOf(student.getGraduationYear().getYear()));
                 studentDto.setTotalCredits(student.getTotalCredits());
                 studentDto.setDeleted(student.isDeleted());
 
@@ -72,7 +73,8 @@ public class StudentTransformer {
         student.setEmail(request.getEmail());
         student.setFirstName(request.getFirstName());
         student.setLastName(request.getLastName());
-        student.setGraduationYear(request.getGraduationYear());
+
+        student.setGraduationYear(LocalDate.of(Integer.parseInt(request.getGraduationYear()), 1, 1));
         student.setTotalCredits(request.getTotalCredits());
         student.setDeleted(request.isDeleted());
 

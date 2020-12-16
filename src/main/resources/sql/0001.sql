@@ -51,7 +51,7 @@ CREATE TABLE student
     photograph_path VARCHAR(100),
     cgpa            FLOAT(10)   NOT NULL DEFAULT 0.0,
     total_credits   INTEGER(10) NOT NULL,
-    graduation_year VARCHAR(4),
+    graduation_year date,
     domain          integer(3),
     specialisation  integer(3),
     is_deleted      boolean              default false,
@@ -60,7 +60,7 @@ CREATE TABLE student
 );
 
 INSERT INTO student
-VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, 2022, 2, 1, false);
+VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, '2022-01-01', 2, 1, false);
 
 INSERT INTO student
-VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, 2022, 2, 1, false);
+VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, '2022-01-01', 2, 1, false);

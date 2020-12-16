@@ -8,6 +8,7 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -45,7 +46,7 @@ public class Student {
     private Long totalCredits;
 
     @Column
-    private Long graduationYear;
+    private LocalDate graduationYear;
 
     @ManyToOne
     @JoinColumn(name = "domain", nullable = false)

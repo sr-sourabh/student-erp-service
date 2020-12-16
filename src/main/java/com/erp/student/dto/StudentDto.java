@@ -10,7 +10,7 @@ public class StudentDto {
     private String email;
     private Long cgpa;
     private Long totalCredits;
-    private Long graduationYear;
+    private String graduationYear;
     private DomainDto domainDto;
     private SpecialisationDto specialisationDto;
     private String error;

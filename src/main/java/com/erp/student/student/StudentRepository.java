@@ -12,4 +12,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     Long countAllByDomain(Domain domain);
 
     Student findFirstByOrderByRollNoDesc();
+
+    Long countAllByEmail(String email);
 }

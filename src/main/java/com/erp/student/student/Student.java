@@ -4,6 +4,7 @@ import com.erp.student.domain.Domain;
 import com.erp.student.specialisation.Specialisation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Data
 @NoArgsConstructor
+@Where(clause = "is_deleted = false")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -52,5 +54,8 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "specialisation", nullable = false)
     private Specialisation specialisation;
+
+    @Column
+    private boolean isDeleted = false;
 
 }

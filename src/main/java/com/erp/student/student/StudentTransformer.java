@@ -50,6 +50,7 @@ public class StudentTransformer {
                 studentDto.setLastName(student.getLastName());
                 studentDto.setGraduationYear(student.getGraduationYear());
                 studentDto.setTotalCredits(student.getTotalCredits());
+                studentDto.setDeleted(student.isDeleted());
 
                 DomainDto domainDto = domainTransformer.toDto(student.getDomain());
                 studentDto.setDomainDto(domainDto);
@@ -73,6 +74,7 @@ public class StudentTransformer {
         student.setLastName(request.getLastName());
         student.setGraduationYear(request.getGraduationYear());
         student.setTotalCredits(request.getTotalCredits());
+        student.setDeleted(request.isDeleted());
 
         Domain domain = domainRepository.findByProgram(request.getDomainDto().getProgram());
         student.setDomain(domain);

@@ -14,4 +14,5 @@ public class StudentDto {
     private DomainDto domainDto;
     private SpecialisationDto specialisationDto;
     private String error;
+    private boolean isDeleted;
 }

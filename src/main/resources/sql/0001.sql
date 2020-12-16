@@ -44,22 +44,23 @@ values (2, 2, 'ECE', null, 2020, 48);
 CREATE TABLE student
 (
     student_id      INTEGER(10) PRIMARY KEY,
-    roll_no         VARCHAR(30) UNIQUE NOT NULL,
-    first_name      VARCHAR(30)        NOT NULL,
+    roll_no         VARCHAR(30) NOT NULL,
+    first_name      VARCHAR(30) NOT NULL,
     last_name       VARCHAR(30),
-    email           VARCHAR(30) UNIQUE NOT NULL,
+    email           VARCHAR(30) NOT NULL,
     photograph_path VARCHAR(100),
-    cgpa            FLOAT(10)          NOT NULL DEFAULT 0.0,
-    total_credits   INTEGER(10)        NOT NULL,
+    cgpa            FLOAT(10)   NOT NULL DEFAULT 0.0,
+    total_credits   INTEGER(10) NOT NULL,
     graduation_year VARCHAR(4),
     domain          integer(3),
     specialisation  integer(3),
+    is_deleted      boolean              default false,
     foreign key (domain) references domain (domain_id),
     foreign key (specialisation) references specialisation (specialisation_id)
 );
 
 INSERT INTO student
-VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, 2022, 2, 1);
+VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, 2022, 2, 1, false);
 
 INSERT INTO student
-VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, 2022, 2, 1);
+VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, 2022, 2, 1, false);

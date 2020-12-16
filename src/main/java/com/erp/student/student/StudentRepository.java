@@ -1,4 +1,4 @@
-package com.erp.student;
+package com.erp.student.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

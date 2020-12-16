@@ -1,8 +1,7 @@
-package com.erp.student;
+package com.erp.student.student;
 
-import com.erp.dto.StudentDto;
+import com.erp.student.dto.StudentDto;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

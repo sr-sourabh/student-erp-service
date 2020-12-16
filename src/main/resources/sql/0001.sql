@@ -13,3 +13,13 @@ CREATE TABLE student
 
 INSERT INTO student
 VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, 2020);
+
+CREATE TABLE admin
+(
+    id       INTEGER(5),
+    username VARCHAR(30)  NOT NULL,
+    password VARCHAR(512) NOT NULL
+);
+
+INSERT INTO admin
+VALUES (1, 'test', 'test');

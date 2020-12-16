@@ -1,4 +1,4 @@
-package com.erp.student;
+package com.erp.student.student;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

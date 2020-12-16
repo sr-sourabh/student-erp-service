@@ -1,6 +1,6 @@
-package com.erp.student;
+package com.erp.student.student;
 
-import com.erp.dto.StudentDto;
+import com.erp.student.dto.StudentDto;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

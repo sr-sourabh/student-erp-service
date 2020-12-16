@@ -7,4 +7,7 @@ import java.util.List;
 public interface StudentService {
     List<StudentDto> getAllStudents();
 
+    StudentDto getStudentDetailsByRollNo(String rollNo);
+
+    StudentDto editStudentDetails(StudentDto request) throws Exception;
 }

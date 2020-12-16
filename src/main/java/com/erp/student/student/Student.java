@@ -1,5 +1,7 @@
 package com.erp.student.student;
 
+import com.erp.student.domain.Domain;
+import com.erp.student.specialisation.Specialisation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,36 +13,44 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "student_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column
     private Long studentId;
 
     @NotNull
-    @Column(unique = true, name = "roll_no")
+    @Column(unique = true)
     private String rollNo;
 
     @NotNull
-    @Column(name = "first_name")
+    @Column
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column
     private String lastName;
 
-    @Column(name = "email", unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Column(name = "photograph_path")
+    @Column
     private String photographPath;
 
     @NotNull
-    @Column(name = "cgpa")
+    @Column
     private Long cgpa;
 
-    @Column(name = "total_credits")
+    @Column
     @NotNull
     private Long totalCredits;
 
     @Column
     private Long graduationYear;
+
+    @ManyToOne
+    @JoinColumn(name = "domain", nullable = false)
+    private Domain domain;
+
+    @ManyToOne
+    @JoinColumn(name = "specialisation", nullable = false)
+    private Specialisation specialisation;
 
 }

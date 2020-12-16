@@ -11,4 +11,7 @@ public class StudentDto {
     private Long cgpa;
     private Long totalCredits;
     private Long graduationYear;
+    private DomainDto domainDto;
+    private SpecialisationDto specialisationDto;
+    private String error;
 }

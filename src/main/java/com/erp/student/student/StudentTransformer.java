@@ -73,6 +73,7 @@ public class StudentTransformer {
         student.setEmail(request.getEmail());
         student.setFirstName(request.getFirstName());
         student.setLastName(request.getLastName());
+        student.setPhotographPath(request.getImagePath());
 
         student.setGraduationYear(LocalDate.of(Integer.parseInt(request.getGraduationYear()), 1, 1));
         student.setTotalCredits(request.getTotalCredits());

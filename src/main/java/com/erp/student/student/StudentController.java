@@ -1,7 +1,9 @@
 package com.erp.student.student;
 
 import com.erp.student.dto.StudentDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,8 +31,11 @@ public class StudentController {
         return studentService.getStudentDetailsByRollNo(rollNo);
     }
 
-    @PutMapping(path = "/student/details/")
-    public StudentDto editStudentDetails(@RequestBody StudentDto request) throws Exception {
+    @PostMapping(path = "/student/details/")
+    public StudentDto editStudentDetails(@RequestParam("json") String requestString, @RequestParam(value = "file", required = false) MultipartFile imageFile) throws Exception {
+        String imagePath = imageFile == null ? null : studentService.uploadImage(imageFile);
+        StudentDto request = new ObjectMapper().readValue(requestString, StudentDto.class);
+        request.setImagePath(imagePath);
         return studentService.editStudentDetails(request);
     }
 }

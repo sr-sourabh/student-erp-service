@@ -6,8 +6,12 @@ import com.erp.student.dto.StudentDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +21,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Value("${erp.student.rollno.length}")
     private int rollNoLen;
+
+    @Value(("${erp.student.image.path}"))
+    private String imageBasePath;
 
     @Resource
     private StudentRepository studentRepository;
@@ -62,6 +69,16 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students = new ArrayList<>();
         students.add(studentTransformer.toEntity(student, request));
         return studentTransformer.toStudentDtos(students).get(0);
+    }
+
+    @Override
+    @Transactional
+    public String uploadImage(MultipartFile imageFile) throws Exception {
+        byte[] bytes = imageFile.getBytes();
+        String imageFullPath = imageBasePath + System.currentTimeMillis() + imageFile.getOriginalFilename();
+        Path path = Paths.get(imageFullPath);
+        Files.write(path, bytes);
+        return imageFullPath;
     }
 
     private void checkDuplicateEmail(StudentDto request) throws Exception {

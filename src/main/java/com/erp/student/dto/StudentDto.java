@@ -15,4 +15,5 @@ public class StudentDto {
     private SpecialisationDto specialisationDto;
     private String error;
     private boolean isDeleted;
+    private String imagePath;
 }

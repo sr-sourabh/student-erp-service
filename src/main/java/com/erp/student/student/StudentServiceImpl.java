@@ -58,14 +58,13 @@ public class StudentServiceImpl implements StudentService {
             checkDomainLimit(request.getDomainDto().getProgram());
             student = new Student();
             student.setRollNo(generateRollNo(request.getDomainDto().getProgram()));
-            checkDuplicateEmail(request);
         } else {
             student = studentRepository.findByRollNo(request.getRollNo());
             if (student == null) {
                 throw new Exception("Student with rollNo: " + request.getRollNo() + " not found");
             }
         }
-
+        checkDuplicateEmail(request);
         List<Student> students = new ArrayList<>();
         students.add(studentTransformer.toEntity(student, request));
         return studentTransformer.toStudentDtos(students).get(0);
@@ -82,7 +81,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     private void checkDuplicateEmail(StudentDto request) throws Exception {
-        if (studentRepository.countAllByEmail(request.getEmail()) > 0) {
+        List<Student> students = studentRepository.findByEmail(request.getEmail());
+        if (students.size() > 0 && (students.size() > 1 || !students.get(0).getRollNo().equals(request.getRollNo()))) {
             throw new Exception("Sorry duplicate email is not allowed");
         }
     }

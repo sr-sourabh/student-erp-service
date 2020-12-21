@@ -41,6 +41,7 @@ handleUpdate = function (deleted) {
     };
     let formData = new FormData();
     formData.set("json", JSON.stringify(studentDto));
+    formData.append("file", document.getElementById("uploadedImage").files[0]);
     const http = new EasyHTTP();
     http.post("/student/details", formData)
         .then(data => {

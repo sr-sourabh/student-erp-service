@@ -74,10 +74,10 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public String uploadImage(MultipartFile imageFile) throws Exception {
         byte[] bytes = imageFile.getBytes();
-        String imageFullPath = imageBasePath + System.currentTimeMillis() + imageFile.getOriginalFilename();
-        Path path = Paths.get(imageFullPath);
+        String imagePath = System.currentTimeMillis() + "";
+        Path path = Paths.get(imageBasePath + imagePath);
         Files.write(path, bytes);
-        return imageFullPath;
+        return imagePath;
     }
 
     private void checkDuplicateEmail(StudentDto request) throws Exception {

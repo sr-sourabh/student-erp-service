@@ -15,9 +15,13 @@ window.onload = () => {
         document.getElementById("rollNo").value = student.rollNo;
         document.getElementById("program").value = student["domainDto"].program;
         document.getElementById("code").value = student["specialisationDto"].code;
-        document.getElementById("cgpa").value = student.cgpa
-        document.getElementById("studentImage")
-            .setAttribute('src', 'data:image/png;base64,' + student.imagePath);
+        document.getElementById("cgpa").value = student.cgpa;
+        if (student.imagePath !== undefined && student.imagePath !== 'null' && student.imagePath !== null) {
+            let studentImage = document.getElementById("studentImage");
+            studentImage.setAttribute('src', 'data:image/png;base64,' + student.imagePath);
+            studentImage.setAttribute('width', '200em');
+            studentImage.setAttribute('height', '200em');
+        }
     }
 };
 
@@ -42,7 +46,10 @@ handleUpdate = function (deleted) {
     };
     let formData = new FormData();
     formData.set("json", JSON.stringify(studentDto));
-    formData.append("file", document.getElementById("uploadedImage").files[0]);
+    let file = document.getElementById("uploadedImage").files[0];
+    if (file !== undefined) {
+        formData.append("file", file);
+    }
     const http = new EasyHTTP();
     http.post("/student/details", formData)
         .then(data => {
@@ -52,8 +59,12 @@ handleUpdate = function (deleted) {
                     handleDelete();
                 } else {
                     document.getElementById("rollNo").value = data.rollNo;
-                    document.getElementById("studentImage")
-                        .setAttribute('src', 'data:image/png;base64,' + data.imagePath);
+                    if (data.imagePath !== undefined && data.imagePath !== 'null' && data.imagePath !== null) {
+                        let studentImage = document.getElementById("studentImage");
+                        studentImage.setAttribute('src', 'data:image/png;base64,' + data.imagePath);
+                        studentImage.setAttribute('width', '200em');
+                        studentImage.setAttribute('height', '200em');
+                    }
                     serverMessage.style.color = 'green';
                     serverMessage.innerText = "Student record saved successfully";
                 }
@@ -76,13 +87,16 @@ handleCancel = function () {
 handleDelete = function () {
     handleCancel();
     return false;
-}
+};
 
 displayImage = function () {
     let reader = new FileReader();
     reader.onload = function (e) {
-        document.getElementById("studentImage").setAttribute('src', e.target.result);
+        let studentImage = document.getElementById("studentImage");
+        studentImage.setAttribute('src', e.target.result);
+        studentImage.setAttribute('width', '200em');
+        studentImage.setAttribute('height', '200em');
     };
     reader.readAsDataURL(document.getElementById("uploadedImage").files[0]);
     return false;
-}
+};

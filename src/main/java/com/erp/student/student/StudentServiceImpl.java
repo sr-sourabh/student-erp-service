@@ -76,7 +76,7 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public String uploadImage(MultipartFile imageFile) throws Exception {
         byte[] bytes = imageFile.getBytes();
-        String imagePath = System.currentTimeMillis() + "";
+        String imagePath = System.currentTimeMillis() + imageFile.getOriginalFilename();
         Path path = Paths.get(imageBasePath + imagePath);
         Files.write(path, bytes);
         return imagePath;

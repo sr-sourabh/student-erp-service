@@ -9,6 +9,7 @@ import com.erp.student.dto.StudentDto;
 import com.erp.student.specialisation.Specialisation;
 import com.erp.student.specialisation.SpecialisationRepository;
 import com.erp.student.specialisation.SpecialisationTransformer;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -81,7 +82,9 @@ public class StudentTransformer {
         student.setEmail(request.getEmail());
         student.setFirstName(request.getFirstName());
         student.setLastName(request.getLastName());
-        student.setPhotographPath(request.getImagePath());
+        if (Strings.isNotBlank(request.getImagePath())) {
+            student.setPhotographPath(request.getImagePath());
+        }
 
         student.setGraduationYear(LocalDate.of(Integer.parseInt(request.getGraduationYear()), 1, 1));
         student.setTotalCredits(request.getTotalCredits());

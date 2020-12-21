@@ -3,9 +3,11 @@ package com.erp.student.student;
 import com.erp.student.domain.Domain;
 import com.erp.student.domain.DomainRepository;
 import com.erp.student.dto.StudentDto;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -78,6 +80,16 @@ public class StudentServiceImpl implements StudentService {
         Path path = Paths.get(imageBasePath + imagePath);
         Files.write(path, bytes);
         return imagePath;
+    }
+
+    @Override
+    public String retrieveImage(String imagePath) throws Exception {
+        if (Strings.isBlank(imagePath)) {
+            return null;
+        }
+        Path path = Paths.get(imageBasePath + imagePath);
+        byte[] bytes = Files.readAllBytes(path);
+        return Base64Utils.encodeToString(bytes);
     }
 
     private void checkDuplicateEmail(StudentDto request) throws Exception {

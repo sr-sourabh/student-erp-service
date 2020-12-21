@@ -14,4 +14,6 @@ public interface StudentService {
 
     //return path of the file stored
     String uploadImage(MultipartFile imageFile) throws Exception;
+
+    String retrieveImage(String imagePath) throws Exception;
 }

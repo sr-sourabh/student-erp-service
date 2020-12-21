@@ -33,6 +33,9 @@ public class StudentTransformer {
     private SpecialisationRepository specialisationRepository;
 
     @Resource
+    private StudentService studentService;
+
+    @Resource
     private StudentRepository studentRepository;
 
     public List<StudentDto> toStudentDtos(List<Student> students) {
@@ -52,6 +55,11 @@ public class StudentTransformer {
                 studentDto.setGraduationYear(String.valueOf(student.getGraduationYear().getYear()));
                 studentDto.setTotalCredits(student.getTotalCredits());
                 studentDto.setDeleted(student.isDeleted());
+                try {
+                    studentDto.setImagePath(studentService.retrieveImage(student.getPhotographPath()));
+                } catch (Exception e) {
+                    studentDto.setError(e.getMessage());
+                }
 
                 DomainDto domainDto = domainTransformer.toDto(student.getDomain());
                 studentDto.setDomainDto(domainDto);

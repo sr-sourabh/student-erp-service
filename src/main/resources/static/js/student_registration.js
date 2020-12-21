@@ -16,7 +16,8 @@ window.onload = () => {
         document.getElementById("program").value = student["domainDto"].program;
         document.getElementById("code").value = student["specialisationDto"].code;
         document.getElementById("cgpa").value = student.cgpa
-
+        document.getElementById("studentImage")
+            .setAttribute('src', 'data:image/png;base64,' + student.imagePath);
     }
 };
 
@@ -51,6 +52,8 @@ handleUpdate = function (deleted) {
                     handleDelete();
                 } else {
                     document.getElementById("rollNo").value = data.rollNo;
+                    document.getElementById("studentImage")
+                        .setAttribute('src', 'data:image/png;base64,' + data.imagePath);
                     serverMessage.style.color = 'green';
                     serverMessage.innerText = "Student record saved successfully";
                 }
@@ -72,5 +75,14 @@ handleCancel = function () {
 
 handleDelete = function () {
     handleCancel();
+    return false;
+}
+
+displayImage = function () {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById("studentImage").setAttribute('src', e.target.result);
+    };
+    reader.readAsDataURL(document.getElementById("uploadedImage").files[0]);
     return false;
 }

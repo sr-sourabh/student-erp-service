@@ -31,7 +31,7 @@ public class StudentController {
         return studentService.getStudentDetailsByRollNo(rollNo);
     }
 
-    @PostMapping(path = "/student/details/")
+    @PostMapping(path = "/student/details")
     public StudentDto editStudentDetails(@RequestParam("json") String requestString, @RequestParam(value = "file", required = false) MultipartFile imageFile) throws Exception {
         String imagePath = imageFile == null ? null : studentService.uploadImage(imageFile);
         StudentDto request = new ObjectMapper().readValue(requestString, StudentDto.class);

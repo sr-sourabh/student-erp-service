@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="js/easyhttp.js" charset="UTF-8"></script>
+    <script src="js/home.js" charset="UTF-8"></script>
+    <title>Home</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+        <!-- FORM  -->
+        <div class="col-md-12">
+
+            <h1>Student Database</h1>
+            <form class="form-horizontal" id="form-edit-client">
+                <fieldset>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <!--                        <label class="col-md-4 control-label" for="student-name">Keyword</label>-->
+                        <div class="col-md-4">
+                            <input id="student-name" name="student-name" type="text"
+                                   placeholder="Search by student name or roll number" class="form-control input-md">
+                        </div>
+                        <div class="col-md-4">
+                            <button id="btn-save" name="btn-save" class="btn btn-success">Search</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- LIST -->
+        <div class=col-md-12>
+
+            <form id="form-list-client">
+                <legend>List of registered students</legend>
+
+                <div class="pull-right">
+                    <button class="btn btn-default-btn-xs btn-success" onclick="return addNewStudent()"><i
+                            class="glyphicon glyphicon-plus"></i> New
+                    </button>
+                </div>
+                <table class="table table-bordered table-condensed table-hover" id="tablebody">
+                    <thead>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    </thead>
+                    <tbody id="form-list-client-body">
+
+                    </tbody>
+                </table>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="alert alert-success alert-dismissible" hidden="true">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+
+</div>
+</body>
+</html>

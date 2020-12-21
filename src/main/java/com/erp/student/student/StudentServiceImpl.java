@@ -98,6 +98,9 @@ public class StudentServiceImpl implements StudentService {
     private String generateRollNo(String program) {
         Domain domain = domainRepository.findByProgram(program);
         Student student = studentRepository.findFirstByOrderByRollNoDesc();
+        if (student == null) {
+            return domain.getProgram() + domain.getBatch() + "001";
+        }
         String rollNo = student.getRollNo().substring(student.getRollNo().length() - rollNoLen);
         rollNo = String.valueOf(Integer.parseInt(rollNo) + 1);
         String newRollNo = rollNo;

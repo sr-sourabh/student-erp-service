@@ -8,7 +8,7 @@ public class StudentDto {
     private String firstName;
     private String lastName;
     private String email;
-    private Long cgpa;
+    private Double cgpa;
     private Long totalCredits;
     private String graduationYear;
     private DomainDto domainDto;

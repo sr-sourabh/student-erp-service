@@ -20,7 +20,7 @@ window.onload = () => {
     }
 };
 
-handleUpdate = function () {
+handleUpdate = function (deleted) {
     let domainDto = {
         program: document.getElementById("program").value
     };
@@ -36,7 +36,8 @@ handleUpdate = function () {
         rollNo: document.getElementById("rollNo").value,
         domainDto: domainDto,
         specialisationDto: specialisationDto,
-        cgpa: document.getElementById("cgpa").value
+        cgpa: document.getElementById("cgpa").value,
+        deleted: deleted
     };
     let formData = new FormData();
     formData.set("json", JSON.stringify(studentDto));
@@ -45,9 +46,13 @@ handleUpdate = function () {
         .then(data => {
             let serverMessage = document.getElementById("serverMessage");
             if (data.error === null || data.error === "null") {
-                document.getElementById("rollNo").value = data.rollNo;
-                serverMessage.style.color = 'green';
-                serverMessage.innerText = "Student record saved successfully";
+                if (studentDto.deleted === true) {
+                    handleDelete();
+                } else {
+                    document.getElementById("rollNo").value = data.rollNo;
+                    serverMessage.style.color = 'green';
+                    serverMessage.innerText = "Student record saved successfully";
+                }
             } else {
                 serverMessage.style.color = 'red';
                 serverMessage.innerText = data.error;
@@ -57,3 +62,14 @@ handleUpdate = function () {
 
     return false;
 };
+
+handleCancel = function () {
+    sessionStorage.setItem("student", null);
+    window.location.href = 'home.html';
+    return false;
+}
+
+handleDelete = function () {
+    handleCancel();
+    return false;
+}

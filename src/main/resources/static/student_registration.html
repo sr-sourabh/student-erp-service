@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal student-form" role="form" onsubmit="return handleUpdate()">
+    <form class="form-horizontal student-form" role="form">
         <h2>Student Registration</h2>
         <div>
             <div class="row">
@@ -87,7 +87,12 @@
 
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <button type="button" onclick="return handleUpdate(false)" class="btn btn-primary">Save
+        </button>
+        <button type="button" onclick="return handleUpdate(true)" class="btn btn-danger">Delete
+        </button>
+        <button type="button" onclick="return handleCancel()" class="btn btn-secondary">Cancel</button>
+
         <br>
         <span id="serverMessage" style="color: red; position: center"></span>
     </form> <!-- /form -->

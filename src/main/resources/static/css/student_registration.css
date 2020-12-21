@@ -4,10 +4,10 @@ body {
 }
 
 *[role="form"] {
-
+    margin-bottom: 4em;
     padding-left: 5em;
     padding-right: 5em;
-    padding-bottom: 5em;
+    padding-bottom: 4em;
     padding-top: 3em;
     font-size: 0.9em;
     border-radius: 0.3em;
@@ -40,4 +40,9 @@ body {
 .rollNumber {
     clear: both;
     float: right;
+}
+
+*[role="form"] button {
+    width: 23%;
+    margin: 2em;
 }

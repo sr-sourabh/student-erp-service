@@ -39,7 +39,7 @@ public class Student {
 
     @NotNull
     @Column
-    private Long cgpa;
+    private Double cgpa;
 
     @Column
     @NotNull

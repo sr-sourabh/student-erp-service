@@ -63,18 +63,39 @@
             </div>
 
             <div class="row">
+                <!--                <div class="form-group">-->
+                <!--                    <label for="program" class="col-sm-3 control-label">Program* </label>-->
+                <!--                    <div class="col-sm-9">-->
+                <!--                        <input required="required" type="text" id="program" placeholder="Eg: MT" class="form-control">-->
+                <!--                    </div>-->
+                <!--                </div>-->
                 <div class="form-group">
                     <label for="program" class="col-sm-3 control-label">Program* </label>
                     <div class="col-sm-9">
-                        <input required="required" type="text" id="program" placeholder="Eg: MT" class="form-control">
+                        <select required="required" type="text" id="program" placeholder="Eg: MT" class="form-control">
+                            <option value="MT">Mtech</option>
+                            <option value="MS">MS</option>
+                            <option value="IMT">IMtech</option>
+                            <option value="PHD">PHD</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="code" class="col-sm-3 control-label">Code* </label>
+                    <!--                    <div class="col-sm-9">-->
+                    <!--                        <input required="required" type="number" id="code" placeholder="Eg: 1 for CSE"-->
+                    <!--                               class="form-control">-->
+                    <!--                    </div>-->
+
                     <div class="col-sm-9">
-                        <input required="required" type="number" id="code" placeholder="Eg: 1 for CSE"
-                               class="form-control">
+                        <select required="required"  id="code" placeholder="Eg: 1 for CSE"
+                                class="form-control">
+                            <option value=1>CSE</option>
+                            <option value=2>ECE</option>
+                        </select>
                     </div>
+
+
                 </div>
                 <div class="form-group">
                     <label for="cgpa" class="col-sm-3 control-label">CGPA* </label>
@@ -87,7 +108,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label for="uploadedImage" id="uploadedImageLabel" class="col-sm-3 control-label">Image</label>
+                    <label for="uploadedImage" class="col-sm-3 control-label">Image</label>
                     <div class="col-sm-9">
                         <input type="file" id="uploadedImage" class="form-control" accept="image/*"
                                onchange="return displayImage()">
@@ -96,7 +117,7 @@
                 <div class="form-group">
                     <label for="studentImage" class="col-sm-3 control-label">Uploaded Image</label>
                     <div class="col-sm-9">
-                        <img id="studentImage"/>
+                        <img id="studentImage" height="200em" width="200em"/>
                     </div>
                 </div>
             </div>

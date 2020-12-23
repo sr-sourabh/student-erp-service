@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
@@ -15,10 +14,13 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     Long countAllByDomain(Domain domain);
 
-    Student findFirstByOrderByRollNoDesc();
+    Student findFirstByRollNoLikeOrderByRollNoDesc(String rollNo);
 
     Long countAllByEmail(String email);
 
     @Query("from Student where email = ?1")
     List<Student> findByEmail(String email);
+
+    @Query("from Student where lower(rollNo) like ?1 or lower(firstName) like ?1 or lower(lastName) like ?1")
+    List<Student> getStudentsByQuery(String query);
 }

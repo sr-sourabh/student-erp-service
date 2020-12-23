@@ -47,7 +47,7 @@ body {
     margin: 2em;
 }
 
-#cgpa::after {
+.form-group.required .control-label:after {
+    color: #d00;
     content: "*";
-    color: red;
 }

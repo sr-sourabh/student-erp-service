@@ -16,4 +16,6 @@ public interface StudentService {
     String uploadImage(MultipartFile imageFile) throws Exception;
 
     String retrieveImage(String imagePath) throws Exception;
+
+    List<StudentDto> getStudentDetailsByQuery(String query);
 }

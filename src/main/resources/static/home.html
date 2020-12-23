@@ -27,11 +27,13 @@
                     <div class="form-group">
                         <!--                        <label class="col-md-4 control-label" for="student-name">Keyword</label>-->
                         <div class="col-md-4">
-                            <input id="student-name" name="student-name" type="text"
+                            <input id="studentQuery" name="student-name" type="text"
                                    placeholder="Search by student name or roll number" class="form-control input-md">
                         </div>
                         <div class="col-md-4">
-                            <button id="btn-save" name="btn-save" class="btn btn-success">Search</button>
+                            <button id="btn-save" name="btn-save" class="btn btn-success"
+                                    onclick="return handleSearch()">Search
+                            </button>
                         </div>
                     </div>
                 </fieldset>

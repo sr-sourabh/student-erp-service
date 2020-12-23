@@ -92,6 +92,15 @@ public class StudentServiceImpl implements StudentService {
         return Base64Utils.encodeToString(bytes);
     }
 
+    @Override
+    public List<StudentDto> getStudentDetailsByQuery(String query) {
+        if (Strings.isBlank(query)) {
+            return new ArrayList<>();
+        }
+        List<Student> students = studentRepository.getStudentsByQuery(query.toLowerCase() + "%");
+        return studentTransformer.toStudentDtos(students);
+    }
+
     private void checkDuplicateEmail(StudentDto request) throws Exception {
         List<Student> students = studentRepository.findByEmail(request.getEmail());
         if (students.size() > 0 && (students.size() > 1 || !students.get(0).getRollNo().equals(request.getRollNo()))) {
@@ -109,7 +118,7 @@ public class StudentServiceImpl implements StudentService {
 
     private String generateRollNo(String program) {
         Domain domain = domainRepository.findByProgram(program);
-        Student student = studentRepository.findFirstByOrderByRollNoDesc();
+        Student student = studentRepository.findFirstByRollNoLikeOrderByRollNoDesc(program + "%");
         if (student == null) {
             return domain.getProgram() + domain.getBatch() + "001";
         }

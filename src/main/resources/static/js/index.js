@@ -4,7 +4,7 @@ function handleLogin() {
     requestDto.password = $("#pass").val();
 
     const http = new EasyHTTP();
-    http.update("/admin/login", requestDto, "PUT")
+    http.put("/admin/login", requestDto, "PUT", true)
         .then(data => {
             sessionStorage.setItem("isLoggedIn", data);
             if (data === true) {

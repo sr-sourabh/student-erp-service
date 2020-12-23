@@ -1,6 +1,7 @@
 package com.erp.student.admin;
 
 import com.erp.student.dto.AdminDto;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -14,7 +15,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean getLoginStatus(AdminDto request) {
-        Admin admin = adminRepository.findByUsernameAndPassword(request.getUsername(), request.getPassword());
+        String password = DigestUtils.sha384Hex(request.getPassword());
+        Admin admin = adminRepository.findByUsernameAndPassword(request.getUsername(), password);
         return Objects.nonNull(admin);
+
     }
 }

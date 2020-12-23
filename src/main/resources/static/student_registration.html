@@ -18,10 +18,11 @@
         <h2>Student Registration</h2>
         <div>
             <div class="row">
-                <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                <div class="form-group required">
+                    <label for="firstName" class="col-sm-3 control-label">First Name </label>
                     <div class="col-sm-9">
-                        <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                        <input type="text" required="required" id="firstName" placeholder="First Name"
+                               class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
@@ -30,8 +31,8 @@
                         <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email* </label>
+                <div class="form-group required">
+                    <label for="email" class="col-sm-3 control-label">Email </label>
                     <div class="col-sm-9">
                         <input required="required" type="email" id="email" placeholder="username@example.com"
                                class="form-control" name="email">
@@ -40,14 +41,14 @@
             </div>
 
             <div class="row">
-                <div class="form-group">
-                    <label for="credit" class="col-sm-3 control-label">Credit* </label>
+                <div class="form-group required">
+                    <label for="credit" class="col-sm-3 control-label">Credit </label>
                     <div class="col-sm-9">
                         <input type="number" id="credit" placeholder="NN" class="form-control">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="graduationYear" class="col-sm-3 control-label">Graduation Year</label>
+                <div class="form-group required">
+                    <label for="graduationYear" class="col-sm-3 control-label">Graduation Year </label>
                     <div class="col-sm-9">
                         <input required="required" type="number" id="graduationYear" class="form-control"
                                placeholder="YYYY" min="1900"
@@ -63,8 +64,8 @@
             </div>
 
             <div class="row">
-                <div class="form-group">
-                    <label for="program" class="col-sm-3 control-label">Program* </label>
+                <div class="form-group required">
+                    <label for="program" class="col-sm-3 control-label">Program </label>
                     <div class="col-sm-9">
                         <select required="required" type="text" id="program" placeholder="Eg: MT" class="form-control">
                             <option value="MT">Mtech</option>
@@ -74,8 +75,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="code" class="col-sm-3 control-label">Code* </label>
+                <div class="form-group required">
+                    <label for="code" class="col-sm-3 control-label">Code </label>
                     <div class="col-sm-9">
                         <select required="required" id="code" placeholder="Eg: 1 for CSE"
                                 class="form-control">
@@ -86,8 +87,8 @@
 
 
                 </div>
-                <div class="form-group">
-                    <label for="cgpa" class="col-sm-3 control-label">CGPA* </label>
+                <div class="form-group required">
+                    <label for="cgpa" class="col-sm-3 control-label">CGPA </label>
                     <div class="col-sm-9">
                         <input required="required" type="number" id="cgpa" placeholder="cgpa out of 4"
                                class="form-control" min="0" max="4">

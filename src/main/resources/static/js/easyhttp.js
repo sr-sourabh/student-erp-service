@@ -1,11 +1,12 @@
 class EasyHTTP {
-    async update(url, data, type) {
+    async put(url, data, type, stringify) {
+        let request = stringify ? JSON.stringify(data) : data;
         const response = await fetch(url, {
             method: type,
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: request
         });
         return await response.json();
     };

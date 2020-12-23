@@ -100,3 +100,25 @@ displayImage = function () {
     reader.readAsDataURL(document.getElementById("uploadedImage").files[0]);
     return false;
 };
+
+validateForUniqueEmail = function () {
+    let request = {
+        email: document.getElementById("email").value,
+        rollNo: document.getElementById("rollNo").value
+    };
+    const http = new EasyHTTP();
+    http.put("/student/validateUniqueEmail", request, "PUT", true)
+        .then(data => {
+            let email = document.getElementById('email');
+            if (data.error !== null) {
+                email.style.borderColor = 'red';
+                email.setAttribute('title', data.error);
+            } else {
+                email.style.borderColor = '';
+                email.removeAttribute('title');
+            }
+        })
+        .catch(err => console.log(err));
+
+    return false;
+}

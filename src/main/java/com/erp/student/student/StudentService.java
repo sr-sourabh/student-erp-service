@@ -18,4 +18,6 @@ public interface StudentService {
     String retrieveImage(String imagePath) throws Exception;
 
     List<StudentDto> getStudentDetailsByQuery(String query);
+
+    StudentDto validateUniqueEmail(StudentDto request) throws Exception;
 }

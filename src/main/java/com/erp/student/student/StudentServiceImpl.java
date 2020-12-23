@@ -94,11 +94,15 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentDto> getStudentDetailsByQuery(String query) {
-        if (Strings.isBlank(query)) {
-            return new ArrayList<>();
-        }
         List<Student> students = studentRepository.getStudentsByQuery(query.toLowerCase() + "%");
         return studentTransformer.toStudentDtos(students);
+    }
+
+    @Override
+    public StudentDto validateUniqueEmail(StudentDto request) throws Exception {
+        checkDuplicateEmail(request);
+        //if email is unique return empty dto
+        return new StudentDto();
     }
 
     private void checkDuplicateEmail(StudentDto request) throws Exception {

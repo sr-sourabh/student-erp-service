@@ -43,6 +43,7 @@ addNewStudent = function () {
 
 handleSearch = function () {
     let query = document.getElementById("studentQuery").value;
+    if (query === "") query = "%";
     const http = new EasyHTTP();
     http.put("/student/details/query", query, "PUT", false)
         .then(data => {

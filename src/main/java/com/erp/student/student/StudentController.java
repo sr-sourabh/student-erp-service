@@ -23,6 +23,11 @@ public class StudentController {
         return studentDto;
     }
 
+    @PutMapping(path = "/student/validateUniqueEmail")
+    public StudentDto validateUniqueEmail(@RequestBody StudentDto request) throws Exception{
+        return studentService.validateUniqueEmail(request);
+    }
+
     @PutMapping(path = "/student/details/query")
     public List<StudentDto> getStudentDetailsByQuery(@RequestBody String query) {
         return studentService.getStudentDetailsByQuery(query);

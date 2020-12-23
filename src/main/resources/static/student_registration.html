@@ -35,7 +35,7 @@
                     <label for="email" class="col-sm-3 control-label">Email </label>
                     <div class="col-sm-9">
                         <input required="required" type="email" id="email" placeholder="username@example.com"
-                               class="form-control" name="email">
+                               class="form-control" name="email" onchange="return validateForUniqueEmail()">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 <div class="form-group required">
                     <label for="program" class="col-sm-3 control-label">Program </label>
                     <div class="col-sm-9">
-                        <select required="required" type="text" id="program" placeholder="Eg: MT" class="form-control">
+                        <select required="required" type="text" id="program" class="form-control">
                             <option value="MT">Mtech</option>
                             <option value="MS">MS</option>
                             <option value="IMT">IMtech</option>
@@ -78,8 +78,7 @@
                 <div class="form-group required">
                     <label for="code" class="col-sm-3 control-label">Code </label>
                     <div class="col-sm-9">
-                        <select required="required" id="code" placeholder="Eg: 1 for CSE"
-                                class="form-control">
+                        <select required="required" id="code" class="form-control">
                             <option value=1>CSE</option>
                             <option value=2>ECE</option>
                         </select>

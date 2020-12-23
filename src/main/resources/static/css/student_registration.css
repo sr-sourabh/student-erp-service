@@ -46,3 +46,8 @@ body {
     width: 23%;
     margin: 2em;
 }
+
+#cgpa::after {
+    content: "*";
+    color: red;
+}

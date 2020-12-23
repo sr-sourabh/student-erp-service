@@ -64,3 +64,6 @@ VALUES (1, 'MT2020054', 'shourabh', 'payal', 'test@test.com', '/null', 4.0, 8, '
 
 INSERT INTO student
 VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, '2022-01-01', 2, 1, false);
+
+update admin
+set password = '768412320f7b0aa5812fce428dc4706b3cae50e02a64caa16a782249bfe8efc4b7ef1ccb126255d196047dfedf17a0a9';

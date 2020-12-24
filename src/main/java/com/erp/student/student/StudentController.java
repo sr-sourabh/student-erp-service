@@ -24,7 +24,7 @@ public class StudentController {
     }
 
     @PutMapping(path = "/student/validateUniqueEmail")
-    public StudentDto validateUniqueEmail(@RequestBody StudentDto request) throws Exception{
+    public StudentDto validateUniqueEmail(@RequestBody StudentDto request) throws Exception {
         return studentService.validateUniqueEmail(request);
     }
 
@@ -67,6 +67,8 @@ public class StudentController {
             throw new Exception("Code should not be blank");
         } else if (Objects.isNull(request.getTotalCredits())) {
             throw new Exception("Credits should not be blank");
+        } else if (Strings.isBlank(request.getRollNo()) && request.isDeleted()) {
+            throw new Exception("Only active students can be deleted");
         }
     }
 }

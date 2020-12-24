@@ -10,8 +10,8 @@ body {
     padding-bottom: 4em;
     padding-top: 3em;
     font-size: 0.9em;
-    border-radius: 0.3em;
-    background-color: #f2f2f2;
+    border-radius: 1em;
+    background-color: rgba(242, 242, 242, .8);
 }
 
 *[role="form"] h2 {

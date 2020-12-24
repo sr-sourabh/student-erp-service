@@ -18,6 +18,5 @@ public class AdminServiceImpl implements AdminService {
         String password = DigestUtils.sha384Hex(request.getPassword());
         Admin admin = adminRepository.findByUsernameAndPassword(request.getUsername(), password);
         return Objects.nonNull(admin);
-
     }
 }

@@ -53,7 +53,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional
     public StudentDto editStudentDetails(StudentDto request) throws Exception {
-        boolean isNew = Objects.isNull(request.getRollNo()) || request.getRollNo().isBlank();
+        boolean isNew = Objects.isNull(request.getRollNo()) || request.getRollNo().isEmpty();
 
         Student student;
         if (isNew) {

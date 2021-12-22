@@ -1,3 +1,5 @@
+create database academic_erp_student_addmission;
+
 CREATE TABLE admin
 (
     id       INTEGER(5),
@@ -67,3 +69,11 @@ VALUES (2, 'MT2020055', 'ayush', 'gaurav', 'test1@test.com', '/null', 4.0, 8, '2
 
 update admin
 set password = '768412320f7b0aa5812fce428dc4706b3cae50e02a64caa16a782249bfe8efc4b7ef1ccb126255d196047dfedf17a0a9';
+
+create table hibernate_sequence
+(
+    next_val integer auto_increment primary key
+);
+
+insert into hibernate_sequence
+values (5);
